@@ -13,6 +13,69 @@ use Dist::Zilla 6.030;
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+=head1 OVERVIEW
+
+This is the default Dist::Zilla release configuration for REFECO
+
+Reproducible by the following dist.ini config:
+
+    [@Filter]
+    -bundle = @Basic
+    -remove = GatherDir
+    -remove = PruneCruft
+
+    [GatherDir]
+    exclude_filename = Makefile.PL
+    exclude_filename = LICENSE
+    exclude_filename = MANIFEST
+    exclude_filename = cpanfile
+
+    [PruneCruft]
+
+    [CopyFilesFromBuild]
+    copy = Makefile.PL
+    copy = LICENSE
+    copy = MANIFEST
+    copy = cpanfile
+
+    [OurPkgVersion]
+    [Test::Version]
+
+    [Authority]
+    authority = cpan:REFECO
+    locate_comment = 1
+
+    [PodWeaver]
+    [PerlTidy]
+
+    [ReadmeAnyFromPod / ReadmePodInRoot]
+    type = gfm
+    filename = README.md
+    location = root
+    phase = build
+
+    [ReadmeAnyFromPod]
+    type = text
+    filename = README
+    location = build
+
+    [NextRelease]
+    [CPANFile]
+    [MetaJSON]
+    [GithubMeta]
+    [Prereqs::AuthorDeps]
+    [Test::Compile]
+    [Test::CheckDeps]
+    [Test::Portability]
+    [Test::Legal]
+    [Test::Perl::Critic]
+    [Test::DistManifest]
+    [PodSyntaxTests]
+    [MojibakeTests]
+    [MetaTests]
+
+=cut
+
 sub configure {
 
     my $self = shift;
@@ -40,12 +103,13 @@ sub configure {
                 locate_comment => 1
             }
         ],
+        'PodWeaver',
         'PerlTidy',
         [
             'ReadmeAnyFromPod' => 'Git' => {
                 filename => 'README.md',
                 location => 'root',
-                type     => 'markdown',
+                type     => 'gfm',
                 phase    => 'build'
             }
         ],
