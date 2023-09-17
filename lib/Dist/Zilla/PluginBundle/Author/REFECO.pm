@@ -29,6 +29,7 @@ Reproducible by the following dist.ini config:
     exclude_filename = LICENSE
     exclude_filename = MANIFEST
     exclude_filename = cpanfile
+    include_dotfiles = 1
 
     [PruneCruft]
 
@@ -91,6 +92,7 @@ sub configure {
         [
             'GatherDir' => {
                 exclude_filename => [@copy],
+                include_dotfiles => 1
             }
         ],
         ['PruneCruft'         => {except => [qw(.perlcriticrc .perltidyrc)]}],
