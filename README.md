@@ -23,6 +23,7 @@ exclude_filename = Makefile.PL
 exclude_filename = LICENSE
 exclude_filename = MANIFEST
 exclude_filename = cpanfile
+exclude_filename = INSTALL
 include_dotfiles = 1
 
 [PruneCruft]
@@ -32,6 +33,7 @@ copy = Makefile.PL
 copy = LICENSE
 copy = MANIFEST
 copy = cpanfile
+copy = INSTALL
 
 [OurPkgVersion]
 [Test::Version]
