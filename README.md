@@ -21,7 +21,6 @@ Reproducible by the following dist.ini config:
 [GatherDir]
 exclude_filename = Makefile.PL
 exclude_filename = LICENSE
-exclude_filename = MANIFEST
 exclude_filename = cpanfile
 exclude_filename = INSTALL
 include_dotfiles = 1
@@ -31,7 +30,6 @@ include_dotfiles = 1
 [CopyFilesFromBuild]
 copy = Makefile.PL
 copy = LICENSE
-copy = MANIFEST
 copy = cpanfile
 copy = INSTALL
 

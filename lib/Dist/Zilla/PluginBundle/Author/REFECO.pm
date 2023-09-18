@@ -27,7 +27,6 @@ Reproducible by the following dist.ini config:
     [GatherDir]
     exclude_filename = Makefile.PL
     exclude_filename = LICENSE
-    exclude_filename = MANIFEST
     exclude_filename = cpanfile
     exclude_filename = INSTALL
     include_dotfiles = 1
@@ -37,7 +36,6 @@ Reproducible by the following dist.ini config:
     [CopyFilesFromBuild]
     copy = Makefile.PL
     copy = LICENSE
-    copy = MANIFEST
     copy = cpanfile
     copy = INSTALL
 
@@ -84,7 +82,7 @@ sub configure {
 
     my $self = shift;
 
-    my @copy = qw(Makefile.PL LICENSE MANIFEST cpanfile INSTALL);
+    my @copy = qw(Makefile.PL LICENSE cpanfile INSTALL);
 
     $self->add_bundle(
         'Filter' => {
