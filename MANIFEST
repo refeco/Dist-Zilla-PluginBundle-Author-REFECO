@@ -2,6 +2,7 @@
 .perlcriticrc
 .perltidyrc
 Changes
+INSTALL
 LICENSE
 MANIFEST
 META.json

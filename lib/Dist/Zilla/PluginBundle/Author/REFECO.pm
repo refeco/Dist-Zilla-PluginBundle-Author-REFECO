@@ -46,6 +46,7 @@ Reproducible by the following dist.ini config:
     authority = cpan:REFECO
     locate_comment = 1
 
+    [InstallGuide]
     [PodWeaver]
     [PerlTidy]
 
@@ -81,7 +82,7 @@ sub configure {
 
     my $self = shift;
 
-    my @copy = qw(Makefile.PL LICENSE MANIFEST cpanfile);
+    my @copy = qw(Makefile.PL LICENSE MANIFEST cpanfile INSTALL);
 
     $self->add_bundle(
         'Filter' => {
@@ -105,6 +106,7 @@ sub configure {
                 locate_comment => 1
             }
         ],
+        'InstallGuide',
         'PodWeaver',
         'PerlTidy',
         [

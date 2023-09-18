@@ -40,6 +40,7 @@ copy = cpanfile
 authority = cpan:REFECO
 locate_comment = 1
 
+[InstallGuide]
 [PodWeaver]
 [PerlTidy]
 
