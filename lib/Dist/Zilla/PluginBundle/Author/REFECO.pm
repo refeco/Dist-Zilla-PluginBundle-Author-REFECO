@@ -29,6 +29,7 @@ Reproducible by the following dist.ini config:
     exclude_filename = LICENSE
     exclude_filename = MANIFEST
     exclude_filename = cpanfile
+    exclude_filename = INSTALL
     include_dotfiles = 1
 
     [PruneCruft]
@@ -38,6 +39,7 @@ Reproducible by the following dist.ini config:
     copy = LICENSE
     copy = MANIFEST
     copy = cpanfile
+    copy = INSTALL
 
     [OurPkgVersion]
     [Test::Version]
