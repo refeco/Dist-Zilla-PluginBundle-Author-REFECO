@@ -32,6 +32,8 @@ Reproducible by the following dist.ini config:
     include_dotfiles = 1
 
     [PruneCruft]
+    exclude = .perlcriticrc
+    exclude = .perltidyrc
 
     [CopyFilesFromBuild]
     copy = Makefile.PL

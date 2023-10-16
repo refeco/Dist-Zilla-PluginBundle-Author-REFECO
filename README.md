@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::REFECO - REFECO dists defaults
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # OVERVIEW
 
@@ -26,6 +26,8 @@ exclude_filename = INSTALL
 include_dotfiles = 1
 
 [PruneCruft]
+exclude = .perlcriticrc
+exclude = .perltidyrc
 
 [CopyFilesFromBuild]
 copy = Makefile.PL
