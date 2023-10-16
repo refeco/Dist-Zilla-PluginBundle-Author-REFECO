@@ -26,6 +26,8 @@ exclude_filename = INSTALL
 include_dotfiles = 1
 
 [PruneCruft]
+exclude = .perlcriticrc
+exclude = .perltidyrc
 
 [CopyFilesFromBuild]
 copy = Makefile.PL
