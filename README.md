@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::REFECO - REFECO dists defaults
 
 # VERSION
 
-version 0.003
+version 0.004
 
 # OVERVIEW
 
@@ -61,6 +61,7 @@ location = build
 [CPANFile]
 [MetaJSON]
 [GithubMeta]
+[MetaProvides::Package]
 [Prereqs::AuthorDeps]
 [Test::Compile]
 [Test::CheckDeps]

@@ -67,6 +67,7 @@ Reproducible by the following dist.ini config:
     [CPANFile]
     [MetaJSON]
     [GithubMeta]
+    [MetaProvides::Package]
     [Prereqs::AuthorDeps]
     [Test::Compile]
     [Test::CheckDeps]
@@ -130,6 +131,7 @@ sub configure {
         'CPANFile',
         'MetaJSON',
         'GithubMeta',
+        'MetaProvides::Package',
         'Prereqs::AuthorDeps',
         'Test::Compile',
         'Test::CheckDeps',
