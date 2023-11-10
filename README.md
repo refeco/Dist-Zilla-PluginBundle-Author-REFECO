@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::REFECO - REFECO dists defaults
 
 # VERSION
 
-version 0.005
+version 0.006
 
 # OVERVIEW
 
@@ -34,6 +34,8 @@ copy = Makefile.PL
 copy = LICENSE
 copy = cpanfile
 copy = INSTALL
+copy = t/00-check-deps.t
+copy = t/00-compile.t
 
 [OurPkgVersion]
 [Test::Version]

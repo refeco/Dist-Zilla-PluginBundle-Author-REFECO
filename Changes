@@ -1,5 +1,8 @@
 {{$NEXT}}
 
+0.006     2023-11-10 02:30:25-03:00 America/Sao_Paulo
+    [BugFixes]
+    - Copy dependency checks and compilation tests to fullfil github actions tests
 0.005     2023-11-10 02:08:58-03:00 America/Sao_Paulo
     [BugFixes]
     - Add prereqs
