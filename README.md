@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::REFECO - REFECO dists defaults
 
 # VERSION
 
-version 0.004
+version 0.005
 
 # OVERVIEW
 
