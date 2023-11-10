@@ -40,6 +40,8 @@ Reproducible by the following dist.ini config:
     copy = LICENSE
     copy = cpanfile
     copy = INSTALL
+    copy = t/00-check-deps.t
+    copy = t/00-compile.t
 
     [OurPkgVersion]
     [Test::Version]
@@ -85,7 +87,7 @@ sub configure {
 
     my $self = shift;
 
-    my @copy = qw(Makefile.PL LICENSE cpanfile INSTALL);
+    my @copy = qw(Makefile.PL LICENSE cpanfile INSTALL t/00-check-deps.t t/00-compile.t);
 
     $self->add_bundle(
         'Filter' => {

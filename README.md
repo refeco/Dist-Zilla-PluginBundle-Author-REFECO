@@ -34,6 +34,8 @@ copy = Makefile.PL
 copy = LICENSE
 copy = cpanfile
 copy = INSTALL
+copy = t/00-check-deps.t
+copy = t/00-compile.t
 
 [OurPkgVersion]
 [Test::Version]
