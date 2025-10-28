@@ -1,3 +1,11 @@
+# NAME
+
+Dist::Zilla::PluginBundle::Author::REFECO - REFECO dist defaults
+
+# VERSION
+
+version 0.007
+
 # OVERVIEW
 
 This is the default Dist::Zilla release configuration for REFECO
@@ -61,4 +69,18 @@ critic_config = .perlcriticrc
 
 [TestRelease]
 [ConfirmRelease]
+```
+
+# AUTHOR
+
+Reginaldo Costa <refeco@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2023 by REFECO.
+
+This is free software, licensed under:
+
+```
+The MIT (X11) License
 ```
