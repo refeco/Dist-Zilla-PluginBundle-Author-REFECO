@@ -1,4 +1,4 @@
-{{$NEXT}}
+0.007     2025-10-28 00:51:42-03:00 America/Sao_Paulo
     [Improvments]
     - Remove self-dependency
     - Remove unused plugins from dist.ini and bundle
