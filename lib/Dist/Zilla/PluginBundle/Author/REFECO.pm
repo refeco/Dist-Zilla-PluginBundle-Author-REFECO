@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::Author::REFECO;
-# ABSTRACT: REFECO dists defaults
+# ABSTRACT: REFECO dist defaults
 
 use strict;
 use warnings;
@@ -7,8 +7,7 @@ use warnings;
 # AUTHORITY
 # VERSION
 
-use Moose 2.2206;
-use namespace::clean;
+use Moose;
 use Dist::Zilla 6.030;
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
@@ -28,20 +27,16 @@ Reproducible by the following dist.ini config:
     exclude_filename = Makefile.PL
     exclude_filename = LICENSE
     exclude_filename = cpanfile
-    exclude_filename = INSTALL
     include_dotfiles = 1
 
     [PruneCruft]
-    exclude = .perlcriticrc
-    exclude = .perltidyrc
+    except = .perlcriticrc
+    except = .perltidyrc
 
     [CopyFilesFromBuild]
     copy = Makefile.PL
     copy = LICENSE
     copy = cpanfile
-    copy = INSTALL
-    copy = t/00-check-deps.t
-    copy = t/00-compile.t
 
     [OurPkgVersion]
     [Test::Version]
@@ -50,36 +45,35 @@ Reproducible by the following dist.ini config:
     authority = cpan:REFECO
     locate_comment = 1
 
-    [InstallGuide]
     [PodWeaver]
     [PerlTidy]
+    perltidyrc = .perltidyrc
 
-    [ReadmeAnyFromPod / ReadmePodInRoot]
+    [ReadmeAnyFromPod]
     type = gfm
     filename = README.md
     location = root
     phase = build
 
-    [ReadmeAnyFromPod]
-    type = text
-    filename = README
-    location = build
-
     [NextRelease]
     [CPANFile]
     [MetaJSON]
+
     [GithubMeta]
+    issues = 1
+
     [MetaProvides::Package]
-    [Prereqs::AuthorDeps]
     [Test::Compile]
     [Test::CheckDeps]
-    [Test::Portability]
-    [Test::Legal]
+
     [Test::Perl::Critic]
-    [Test::DistManifest]
+    critic_config = .perlcriticrc
+
     [PodSyntaxTests]
-    [MojibakeTests]
     [MetaTests]
+
+    [TestRelease]
+    [ConfirmRelease]
 
 =cut
 
@@ -87,7 +81,7 @@ sub configure {
 
     my $self = shift;
 
-    my @copy = qw(Makefile.PL LICENSE cpanfile INSTALL t/00-check-deps.t t/00-compile.t);
+    my @copy = qw(Makefile.PL LICENSE cpanfile);
 
     $self->add_bundle(
         'Filter' => {
@@ -96,13 +90,13 @@ sub configure {
 
     $self->add_plugins(    #
         [
-            'GatherDir' => {
+            'GatherDir'          => {
                 exclude_filename => [@copy],
                 include_dotfiles => 1
             }
         ],
         ['PruneCruft'         => {except => [qw(.perlcriticrc .perltidyrc)]}],
-        ['CopyFilesFromBuild' => {copy   => [@copy]}],
+        ['CopyFilesFromBuild' => {copy             => [@copy]}],
         'OurPkgVersion',
         'Test::Version',
         [
@@ -111,9 +105,12 @@ sub configure {
                 locate_comment => 1
             }
         ],
-        'InstallGuide',
         'PodWeaver',
-        'PerlTidy',
+        [
+            'PerlTidy' => {
+                perltidyrc => '.perltidyrc'
+            }
+        ],
         [
             'ReadmeAnyFromPod' => 'Git' => {
                 filename => 'README.md',
@@ -122,28 +119,26 @@ sub configure {
                 phase    => 'build'
             }
         ],
+        'NextRelease',
+        'MetaJSON',
         [
-            'ReadmeAnyFromPod' => 'Dist' => {
-                filename => 'README',
-                location => 'build',
-                type     => 'text'
+            'GithubMeta' => {
+                issues => 1,
             }
         ],
-        'NextRelease',
-        'CPANFile',
-        'MetaJSON',
-        'GithubMeta',
         'MetaProvides::Package',
-        'Prereqs::AuthorDeps',
+        'CPANFile',
         'Test::Compile',
         'Test::CheckDeps',
-        'Test::Portability',
-        'Test::Legal',
-        'Test::Perl::Critic',
-        'Test::DistManifest',
+        [
+            'Test::Perl::Critic' => {
+                critic_config => '.perlcriticrc'
+            }
+        ],
         'PodSyntaxTests',
-        'MojibakeTests',
-        'MetaTests'
+        'MetaTests',
+        'TestRelease',
+        'ConfirmRelease',
     );
 }
 

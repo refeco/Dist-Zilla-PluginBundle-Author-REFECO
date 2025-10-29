@@ -1,10 +1,10 @@
 # NAME
 
-Dist::Zilla::PluginBundle::Author::REFECO - REFECO dists defaults
+Dist::Zilla::PluginBundle::Author::REFECO - REFECO dist defaults
 
 # VERSION
 
-version 0.006
+version 0.007
 
 # OVERVIEW
 
@@ -22,20 +22,16 @@ Reproducible by the following dist.ini config:
 exclude_filename = Makefile.PL
 exclude_filename = LICENSE
 exclude_filename = cpanfile
-exclude_filename = INSTALL
 include_dotfiles = 1
 
 [PruneCruft]
-exclude = .perlcriticrc
-exclude = .perltidyrc
+except = .perlcriticrc
+except = .perltidyrc
 
 [CopyFilesFromBuild]
 copy = Makefile.PL
 copy = LICENSE
 copy = cpanfile
-copy = INSTALL
-copy = t/00-check-deps.t
-copy = t/00-compile.t
 
 [OurPkgVersion]
 [Test::Version]
@@ -44,36 +40,35 @@ copy = t/00-compile.t
 authority = cpan:REFECO
 locate_comment = 1
 
-[InstallGuide]
 [PodWeaver]
 [PerlTidy]
+perltidyrc = .perltidyrc
 
-[ReadmeAnyFromPod / ReadmePodInRoot]
+[ReadmeAnyFromPod]
 type = gfm
 filename = README.md
 location = root
 phase = build
 
-[ReadmeAnyFromPod]
-type = text
-filename = README
-location = build
-
 [NextRelease]
 [CPANFile]
 [MetaJSON]
+
 [GithubMeta]
+issues = 1
+
 [MetaProvides::Package]
-[Prereqs::AuthorDeps]
 [Test::Compile]
 [Test::CheckDeps]
-[Test::Portability]
-[Test::Legal]
+
 [Test::Perl::Critic]
-[Test::DistManifest]
+critic_config = .perlcriticrc
+
 [PodSyntaxTests]
-[MojibakeTests]
 [MetaTests]
+
+[TestRelease]
+[ConfirmRelease]
 ```
 
 # AUTHOR
